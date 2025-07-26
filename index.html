@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Birthday Card </title>
+<style>
+  body {
+    background: #f9f9f9;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+  }
+
+  .card {
+    background: linear-gradient(to bottom right, #f9e0d9, #f7c6b9);
+    border: 2px solid #f48c8c;
+    border-radius: 15px;
+    padding: 20px 30px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 2px 4px 10px rgba(0,0,0,0.1);
+    position: relative;
+    overflow: hidden; /* keep balloons inside */
+  }
+
+  .pin {
+    width: 30px;
+    height: 40px;
+    background: red;
+    border-radius: 50%;
+    position: absolute;
+    top: -10px;
+    right: -10px;
+  }
+
+  .title {
+    font-size: 22px;
+    font-weight: bold;
+    background: linear-gradient(90deg, #ff7f50, #90ee90);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .cake-img {
+    width: 80px;
+    height: auto;
+    border-radius: 8px;
+    margin: 10px 0;
+  }
+
+  .message {
+    font-size: 14px;
+    color: #333;
+    margin: 10px 0;
+  }
+
+  .box {
+    border: 2px dotted pink;
+    border-radius: 8px;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 13px;
+  }
+
+  .button {
+    background-color: #f48c8c;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 15px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 10px;
+    box-shadow: 1px 2px 5px rgba(0,0,0,0.2);
+  }
+
+  .balloon-container {
+    position: absolute;
+    top: 40px; /* roughly start at title */
+    left: 0;
+    width: 100%;
+    height: 200px; /* ~5cm ≈ 180–200px */
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 1;
+  }
+
+  .balloon {
+    width: 20px;
+    height: 28px;
+    background: pink;
+    border-radius: 50% 50% 45% 45%;
+    position: absolute;
+    bottom: 0;
+    animation: floatShort 4s linear infinite;
+  }
+
+  .balloon::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    width: 2px;
+    height: 8px;
+    background: #555;
+    transform: translateX(-50%);
+  }
+
+  .balloon:nth-child(1) {
+    left: 20%;
+    background: #ff7f50;
+    animation-delay: 0s;
+  }
+
+  .balloon:nth-child(2) {
+    left: 50%;
+    background: #90ee90;
+    animation-delay: 1s;
+  }
+
+  .balloon:nth-child(3) {
+    left: 75%;
+    background: #add8e6;
+    animation-delay: 2s;
+  }
+
+  @keyframes floatShort {
+    0% {
+      bottom: 0;
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    100% {
+      bottom: 180px; /* float up ~5cm */
+      opacity: 0;
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="pin"></div>
+    <div class="title">Happy Birthday Ashvanee pratap</div>
+    
+    <!-- Balloons start near title -->
+    <div class="balloon-container">
+      <div class="balloon"></div>
+      <div class="balloon"></div>
+      <div class="balloon"></div>
+    </div>
+
+    <img src="image/image.png" alt="Cake" class="cake-img"> 
+    <div class="message">Wishing you a day filled with happiness, laughter, and sweet surprises!</div>
+    <div class="box">
+      Lots of love and blessings on your special day. May all your dreams come true. Keep smiling and shining always! 💖
+    </div>
+    <button class="button">Click for Surprise 🎁</button>
+  </div>
+</body>
+</html>
